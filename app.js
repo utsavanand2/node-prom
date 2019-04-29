@@ -1,7 +1,7 @@
 const http = require('http')
 
 const requestLogs = []
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8000
 
 const server = http.createServer((req, res) => {
     requestLogs.push({ url: req.url, date: new Date() })

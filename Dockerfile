@@ -6,6 +6,6 @@ WORKDIR /app
 COPY package*.json ./
 COPY app.js ./
 
-EXPOSE 8080
+EXPOSE 8000
 
 ENTRYPOINT ["npm", "start"]
