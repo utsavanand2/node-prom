@@ -1,6 +1,0 @@
-scrape_configs:
-- job_name: node-prom
-  scrape_interval: 5s
-  static_configs:
-  - targets:
-    - node-prom:8000
