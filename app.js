@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify(requestLogs))
     } else if (req.url == '/metrics') {
         res.setHeader('Content-Type', Prometheus.register.contentType)
-        res.end(Prome)
+        res.end(Prometheus.register.metrics())
     }
     
 })
