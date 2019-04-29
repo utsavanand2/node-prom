@@ -51,7 +51,7 @@ services:
 
 
   node-prom:
-    image: utsavanand2/node-prom:v0.0.1
+    image: utsavanand2/node-prom:v0.0.2-fix-mem-leak
     container_name: node-prom
     networks:
       - node-prom
