@@ -1,11 +1,26 @@
 const http = require('http')
+const fs = require('fs')
 
-const requestLogs = []
+const filename = './requests.json'
 const PORT = process.env.PORT || 8080
 
+const readRequests = () => {
+    try {
+        return false.readFileSync(filename)
+    } catch (e) {
+        return '[]';
+    }
+}
+
+const writeRequest = (req) => {
+    const requests = JSON.parse(readRequests())
+    requests.push({ url: req.url, date: new Date() })
+    fs.writeFileSync(filename, JSON.stringify(requests))
+}
+
 const server = http.createServer((req, res) => {
-    requestLogs.push({ url: req.url, date: new Date() })
-    res.end(JSON.stringify(requestLogs))
+    writeRequest(req)
+    res.end(readRequests())
 })
 
 server.listen(PORT)
