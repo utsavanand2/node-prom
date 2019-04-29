@@ -1,5 +1,6 @@
 const http = require('http')
 const fs = require('fs')
+const Prometheus = require('prom-client')
 
 const filename = './requests.json'
 const PORT = process.env.PORT || 8000
@@ -19,8 +20,14 @@ const writeRequest = (req) => {
 }
 
 const server = http.createServer((req, res) => {
-    writeRequest(req)
-    res.end(readRequests())
+    if (req.url == '/') {
+        writeRequest(req)
+        res.end(readRequests())
+    } else if (req.url == '/metrics') {
+        res.setHeader('Content-Type', Prometheus.register.contentType)
+        res.end(Prome)
+    }
+    
 })
 
 server.listen(PORT)
