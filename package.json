@@ -8,5 +8,8 @@
     "start": "node app.js"
   },
   "author": "Utsav",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "prom-client": "^11.3.0"
+  }
 }
