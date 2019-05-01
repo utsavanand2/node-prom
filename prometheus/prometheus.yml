@@ -1,6 +1,6 @@
 scrape_configs:
-- job_name: node-prom
+- job_name: cadvisor
   scrape_interval: 5s
   static_configs:
   - targets:
-    - node-prom:8000
+    - cadvisor:8080
