@@ -19,8 +19,7 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/usr/share/prometheus/console_libraries'
       - '--web.console.templates=/usr/share/prometheus/consoles'
-    depends_on:
-    - cadvisor
+
     ports:
       - 9090:9090
     links:
@@ -51,7 +50,7 @@ services:
 
 
   node-prom:
-    image: utsavanand2/node-prom:v0.0.2-fix-mem-leak
+    image: utsavanand2/node-prom:v0.0.1
     container_name: node-prom
     networks:
       - node-prom
